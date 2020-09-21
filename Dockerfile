@@ -1,19 +1,13 @@
 FROM alpine:latest
 
-# bad EXPOSE
-#EXPOSE 22
-# good EXPOSE
-EXPOSE 9999
+# bad EXPOSE, RUN, USER
+EXPOSE 22
+RUN apk add curl
 
-# bad RUN
-#RUN apk add curl
-# good RUN
-RUN apk add wget
-
-# BAD user
-## (nothing, default to root)
-# GOOD user
-USER 65534:65534
+# good EXPOSE, RUN, USER
+#EXPOSE 9999
+#RUN apk add wget
+#USER 65534:65534
 
 # good CMD, bad CMD same either way
 CMD /bin/sh
